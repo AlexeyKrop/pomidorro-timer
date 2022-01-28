@@ -2,17 +2,20 @@
 const pomidoroTimer = () => {
   const minutes = document.getElementById("minutes"),
     seconds = document.getElementById("seconds"),
-    time = document.getElementById("time");
-  let timeMinute = minutes.textContent * 60;
+    time = document.getElementById("time"),
+    body = document.querySelector("body"),
+    start = document.getElementById("stsp");
+  let idInterval;
+  let timeMinute = +minutes.textContent * 60;
   const zeroFormat = (number) => {
     if (number < 10) {
       number = "0" + number;
     }
     return number;
   };
-  const startTimer = () => {
+  const settingsTimer = () => {
     const second = timeMinute % 60,
-      minute = (timeMinute / 60) % 60;
+      minute = timeMinute / 60;
     if (timeMinute >= 0) {
       seconds.textContent = zeroFormat(Math.floor(second));
       minutes.textContent = zeroFormat(Math.floor(minute));
@@ -22,7 +25,9 @@ const pomidoroTimer = () => {
       defoultStyle();
     }
   };
-  let idInterval = setInterval(startTimer, 1000);
+  const startTimer = () => {
+    idInterval = setInterval(settingsTimer, 1000);
+  };
   const stopTimer = () => {
     clearInterval(idInterval);
   };
@@ -30,13 +35,19 @@ const pomidoroTimer = () => {
     seconds.style.color = "red";
     minutes.style.color = "red";
   };
-  const getEdit = () => {
-    time.addEventListener("click", (event) => {
-      const target = event.target;
-      minutes.contentEditable = true;
-      stopTimer();
-    });
+  const startStyle = () => {
+    seconds.style.color = "white";
+    minutes.style.color = "white";
   };
-  getEdit();
+  start.addEventListener("click", () => {
+    timeMinute = +minutes.textContent * 60;
+    startStyle();
+    settingsTimer();
+    startTimer();
+  });
+  time.addEventListener("click", (e) => {
+    const target = e.target;
+    stopTimer();
+  });
 };
 pomidoroTimer();
