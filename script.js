@@ -3,7 +3,7 @@ const pomidoroTimer = () => {
   const minutes = document.getElementById("minutes"),
     seconds = document.getElementById("seconds"),
     timer = document.querySelector(".timer"),
-    container = document.querySelector(".container"),
+    pomidor = document.querySelector(".pomidor"),
     start = document.getElementById("start"),
     stop = document.getElementById("stop"),
     reset = document.getElementById("reset"),
@@ -97,16 +97,6 @@ const pomidoroTimer = () => {
     if (target.matches("#reset")) {
       resetTimer();
     }
-  });
-  container.draggable = true;
-  container.addEventListener("dragstart", (e) => {
-    const target = e.target;
-    console.log(target);
-  });
-
-  container.addEventListener("dragend", (e) => {
-    const target = e.target;
-    console.log(target);
   });
 };
 pomidoroTimer();
