@@ -80,6 +80,8 @@ body {
 #start,
 #stop,
 #reset {
+  background: transparent;
+  border: none;
   cursor: pointer;
   font-family: "Montserrat";
   font-weight: bold;
