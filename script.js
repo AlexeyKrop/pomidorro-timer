@@ -4,7 +4,8 @@ const pomidoroTimer = () => {
     seconds = document.getElementById("seconds"),
     timer = document.querySelector(".timer"),
     body = document.querySelector("body"),
-    start = document.getElementById("stsp");
+    start = document.getElementById("start"),
+    stop = document.getElementById("stop");
   let idInterval;
   let timeMinute = +minutes.textContent * 60;
   const zeroFormat = (number) => {
@@ -63,9 +64,12 @@ const pomidoroTimer = () => {
 
   body.addEventListener("click", (e) => {
     const target = e.target;
-    if (!target.matches("#stsp")) {
+    if (!target.matches("#start")) {
       stopTimer();
     }
+  });
+  stop.addEventListener("click", (e) => {
+    stopTimer();
   });
 };
 pomidoroTimer();
