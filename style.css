@@ -167,3 +167,6 @@ body {
     animation: scroll 200s linear infinite;
   }
 }
+.wrapper__forest {
+  background: url("https://answit.com/wp-content/uploads/2017/01/full-hd.jpg");
+}

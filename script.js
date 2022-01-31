@@ -103,6 +103,7 @@ const pomidoroTimer = () => {
     start.classList.toggle("btn-animation");
     stop.classList.toggle("btn-animation");
     reset.classList.toggle("btn-animation");
+    dropdown.style.opacity = 0.4;
   };
   dropdown.addEventListener("change", (e) => {
     const target = e.target;
@@ -110,6 +111,9 @@ const pomidoroTimer = () => {
       styleForTheme();
     } else if (target.value === "1") {
       styleForTheme();
+    } else if (target.value === "3") {
+      body.classList.toggle("wrapper__forest");
+      body.classList.add("wrapper");
     }
   });
 };
