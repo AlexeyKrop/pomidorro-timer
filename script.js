@@ -2,7 +2,7 @@
 const pomidoroTimer = () => {
   const minutes = document.getElementById("minutes"),
     seconds = document.getElementById("seconds"),
-    time = document.getElementById("time"),
+    timer = document.querySelector(".timer"),
     body = document.querySelector("body"),
     start = document.getElementById("stsp");
   let idInterval;
@@ -22,7 +22,7 @@ const pomidoroTimer = () => {
       timeMinute--;
     } else {
       stopTimer();
-      defoultStyle();
+      basicStyleSettings();
     }
   };
   const startTimer = () => {
@@ -31,23 +31,41 @@ const pomidoroTimer = () => {
   const stopTimer = () => {
     clearInterval(idInterval);
   };
-  const defoultStyle = () => {
+  const basicStyleSettings = () => {
     seconds.style.color = "red";
     minutes.style.color = "red";
   };
-  const startStyle = () => {
+  const timerStyleSettings = () => {
     seconds.style.color = "white";
     minutes.style.color = "white";
   };
   start.addEventListener("click", () => {
     timeMinute = +minutes.textContent * 60;
-    startStyle();
+    if (minutes.textContent === "00" && seconds.textContent === "00") {
+      const el = document.createElement("div");
+      el.textContent = "Введите время";
+      el.style.cssText = `position: absolute;
+                          top: 25%;
+                          font-size: 25px;
+                          color: #90EE90;`;
+      setTimeout(() => {
+        if (el) {
+          el.remove();
+        }
+      }, 2000);
+      timer.append(el);
+      return;
+    }
+    timerStyleSettings();
     settingsTimer();
     startTimer();
   });
-  time.addEventListener("click", (e) => {
+
+  body.addEventListener("click", (e) => {
     const target = e.target;
-    stopTimer();
+    if (!target.matches("#stsp")) {
+      stopTimer();
+    }
   });
 };
 pomidoroTimer();
