@@ -76,9 +76,7 @@ body {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-#start,
-#stop,
-#reset {
+.btn {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -91,25 +89,81 @@ body {
   margin: 1rem 0 0.85rem 0;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-#reset {
+.btn__reset {
   position: absolute;
   top: 25%;
   color: rgba(0, 0, 0, 0.25);
 }
-#reset:hover {
+.btn__reset:hover {
   color: rgba(0, 0, 0, 1);
 }
-#start:hover {
+.btn:hover {
   color: rgba(0, 0, 0, 0.25);
 }
-#stop:hover {
+.btn:hover {
   color: rgba(0, 0, 0, 0.25);
+}
+.btn-animation {
+  color: white;
+}
+.btn-animation:hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 #setting {
   cursor: pointer;
   margin-top: 1rem;
   width: 25px;
   height: 25px;
-  color: #585858;
+  color: #585858 !important;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+}
+.select-item {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 200px;
+  border-radius: 3px;
+  background-color: #ff6347;
+}
+#dropdown {
+  position: absolute;
+  margin: 10px;
+  padding: 10px;
+  height: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #ff6347;
+  appearance: none;
+}
+
+.wrapper {
+  animation: scroll 70s linear infinite;
+  background: url("https://images.wallpaperscraft.ru/image/single/volny_okean_vid_sverhu_148218_1920x1080.jpg"),
+    #111111;
+  color: #eee;
+  height: 100vh;
+  min-width: 360px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+@keyframes scroll {
+  100% {
+    background-position: 0px -3000px;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .wrapper {
+    animation: scroll 200s linear infinite;
+  }
 }

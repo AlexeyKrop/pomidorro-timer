@@ -16,11 +16,17 @@
             <span id="colon">:</span>
             <span id="seconds" contentEditable="true">00</span>
           </div>
-          <button id="start">START</button>
-          <button id="stop">STOP</button>
-          <button id="reset">RESET</button>
+          <button id="start" class="btn">START</button>
+          <button id="stop" class="btn">STOP</button>
+          <button id="reset" class="btn btn__reset">RESET</button>
         </div>
       </div>
+    </div>
+    <div class="select-item">
+      <select id="dropdown">
+        <option class="static" value="1">Статическая</option>
+        <option class="animation" value="2">Анимация</option>
+      </select>
     </div>
     <script src="./script.js"></script>
   </body>

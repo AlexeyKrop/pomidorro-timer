@@ -3,7 +3,7 @@ const pomidoroTimer = () => {
   const minutes = document.getElementById("minutes"),
     seconds = document.getElementById("seconds"),
     timer = document.querySelector(".timer"),
-    pomidor = document.querySelector(".pomidor"),
+    dropdown = document.getElementById("dropdown"),
     start = document.getElementById("start"),
     stop = document.getElementById("stop"),
     reset = document.getElementById("reset"),
@@ -96,6 +96,20 @@ const pomidoroTimer = () => {
     }
     if (target.matches("#reset")) {
       resetTimer();
+    }
+  });
+  const styleForTheme = () => {
+    body.classList.toggle("wrapper");
+    start.classList.toggle("btn-animation");
+    stop.classList.toggle("btn-animation");
+    reset.classList.toggle("btn-animation");
+  };
+  dropdown.addEventListener("change", (e) => {
+    const target = e.target;
+    if (target.value === "2") {
+      styleForTheme();
+    } else if (target.value === "1") {
+      styleForTheme();
     }
   });
 };
