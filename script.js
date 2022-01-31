@@ -52,7 +52,7 @@ const pomidoroTimer = () => {
       const el = document.createElement("div");
       el.textContent = "Введите время";
       el.style.cssText = `position: absolute;
-                          top: 25%;
+                          top: 30%;
                           font-size: 25px;
                           color: #90EE90;`;
       setTimeout(() => {
