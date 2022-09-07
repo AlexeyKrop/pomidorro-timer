@@ -143,8 +143,6 @@ body {
 
 .wrapper {
   animation: scroll 70s linear infinite;
-  background: url("https://images.wallpaperscraft.ru/image/single/volny_okean_vid_sverhu_148218_1920x1080.jpg"),
-    #111111;
   color: #eee;
   height: 100vh;
   min-width: 360px;
@@ -166,6 +164,10 @@ body {
   .wrapper {
     animation: scroll 200s linear infinite;
   }
+}
+.wrapper__ocean {
+  background: url("https://images.wallpaperscraft.ru/image/single/volny_okean_vid_sverhu_148218_1920x1080.jpg"),
+    #111111;
 }
 .wrapper__forest {
   background: url("https://answit.com/wp-content/uploads/2017/01/full-hd.jpg");

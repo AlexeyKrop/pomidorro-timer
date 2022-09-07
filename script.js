@@ -98,23 +98,27 @@ const pomidoroTimer = () => {
       resetTimer();
     }
   });
-  const styleForTheme = () => {
-    body.classList.toggle("wrapper");
+  const styleForTheme = (value) => {
+    if (+value === 0) {
+      body.classList.remove("wrapper__forest");
+      body.classList.remove("wrapper__ocean");
+    }
+    if (+value === 1) {
+      body.classList.remove("wrapper__forest");
+      body.classList.add("wrapper__ocean");
+    }
+    if (+value === 2) {
+      body.classList.remove("wrapper__ocean");
+      body.classList.add("wrapper__forest");
+    }
     start.classList.toggle("btn-animation");
     stop.classList.toggle("btn-animation");
     reset.classList.toggle("btn-animation");
     dropdown.style.opacity = 0.4;
   };
   dropdown.addEventListener("change", (e) => {
-    const target = e.target;
-    if (target.value === "2") {
-      styleForTheme();
-    } else if (target.value === "1") {
-      styleForTheme();
-    } else if (target.value === "3") {
-      body.classList.toggle("wrapper__forest");
-      body.classList.add("wrapper");
-    }
+    const target = e.currentTarget;
+    styleForTheme(target.value);
   });
 };
 pomidoroTimer();
